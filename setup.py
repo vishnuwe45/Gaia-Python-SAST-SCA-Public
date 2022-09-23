@@ -7,7 +7,7 @@ setup(name='testpipeline',
       author_email='pipelineauthor@mail.com',
       install_requires=[
             'gaiasdk>=0.0.16',
-            'bandit=1.7.4',
-            'safety=2.2.0',
-            'pyraider=1.0.20'
+            'bandit==1.7.4',
+            'safety==2.2.0',
+            'pyraider==1.0.20'
       ])
