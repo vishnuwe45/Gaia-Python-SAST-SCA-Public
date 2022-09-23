@@ -2,19 +2,28 @@ from gaiasdk import sdk
 import logging
 import time
 import subprocess
+import os
 
-from pathlib import Path
+path_parent = os.path.dirname(os.getcwd())
+os.chdir(path_parent)
 
+safety_path = str(os. getcwd())+"/requirements.txt"
+pyraider_path = str(os. getcwd())+"/requirements.txt"
+bandit_path = str(os. getcwd())+"/app.py"
 
 def RunBandit(args):
     logging.info("Bandit has been started!")
     time.sleep(5)
-    print(Path.cwd())
-    logging.info(Path.cwd())
+    logging.info("Bandit has been finished!")
 
 def RunSafety(args):
     logging.info("Safety has been started!")
-    time.sleep(5)
+    logging.info(safety_path)
+    cmd = "safety check -r {0} --output json".format(safety_path)
+    process = subprocess.Popen(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True)
+    stdout, stderr = process.communicate()
+    logging.info(stdout)
+    logging.info(stderr)
     logging.info("Safety has been finished!")
 
 def RunPyraider(args):
