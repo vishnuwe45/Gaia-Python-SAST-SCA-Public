@@ -10,7 +10,7 @@ def RunBandit(args):
     logging.info("Bandit has been started!")
     time.sleep(5)
     print(Path.cwd())
-    logging.info("Bandit has been finished!")
+    logging.info(Path.cwd())
 
 def RunSafety(args):
     logging.info("Safety has been started!")
