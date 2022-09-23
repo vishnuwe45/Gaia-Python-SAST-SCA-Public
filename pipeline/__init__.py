@@ -65,7 +65,7 @@ def RunPyraider(args):
 
 def main():
     logging.basicConfig(level=logging.INFO)
-    runbandit = sdk.Job("Run Bandit Scan", "Running Bandit Scan", RunBandit, ["Run Bandit Scan"])
+    runbandit = sdk.Job("Run Bandit Scan", "Running Bandit Scan", RunBandit)
     runsafety = sdk.Job("Run Safety Scan", "Running Safety Scan", RunSafety, ["Run Bandit Scan"])
     runpyraider = sdk.Job("Run Pyraider Scan", "Running Pyraider Scan", RunPyraider, ["Run Safety Scan"])
     sdk.serve([runbandit, runsafety, runpyraider])
