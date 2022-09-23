@@ -1,10 +1,15 @@
 from gaiasdk import sdk
 import logging
 import time
+import subprocess
+
+from pathlib import Path
+
 
 def RunBandit(args):
     logging.info("Bandit has been started!")
     time.sleep(5)
+    print(Path.cwd())
     logging.info("Bandit has been finished!")
 
 def RunSafety(args):
