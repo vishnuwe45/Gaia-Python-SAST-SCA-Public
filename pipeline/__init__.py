@@ -8,9 +8,9 @@ import git
 path_parent = os.getcwd()
 #os.chdir(path_parent)
 
-#safety_path = str(os. getcwd())+"/requirements.txt"
-#pyraider_path = str(os. getcwd())+"/requirements.txt"
-#bandit_path = str(os. getcwd())+"/app.py"
+safety_path = path_parent+"/Vulnerable-Flask-App/app/requirements.txt"
+pyraider_path = path_parent+"/Vulnerable-Flask-App/app/requirements.txt"
+bandit_path = path_parent+"/Vulnerable-Flask-App/app/app.py"
 
 def Clone(args):
     logging.info("Cloning Latest Source started!")
@@ -26,8 +26,8 @@ def RunBandit(args):
 def RunSafety(args):
     logging.info("Safety has been started!")
     #logging.info(safety_path)
-    #cmd = "safety check -r {0} --output json".format(safety_path)
-    cmd = "ls"
+    cmd = "safety check -r {0} --output json".format(safety_path)
+    #cmd = "ls"
     process = subprocess.Popen(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True)
     stdout, stderr = process.communicate()
     logging.info(stdout)
