@@ -3,6 +3,7 @@ import logging
 import time
 import subprocess
 import os
+import git
 
 path_parent = os.getcwd()
 #os.chdir(path_parent)
@@ -14,7 +15,7 @@ path_parent = os.getcwd()
 def Clone(args):
     logging.info("Cloning Latest Source started!")
     time.sleep(5)
-    #git.Git(path_parent).clone("git@github.com:we45/Vulnerable-Flask-App.git")
+    git.Git(path_parent).clone("git@github.com:we45/Vulnerable-Flask-App.git")
     logging.info("Cloning Latest Source finished!")
     
 def RunBandit(args):
