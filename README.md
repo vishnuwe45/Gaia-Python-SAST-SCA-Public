@@ -1,2 +1,1 @@
-# python-example
-Python Example Gaia Pipeline
+# Python SAST SCA Pipeline
