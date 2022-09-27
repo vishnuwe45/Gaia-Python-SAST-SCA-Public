@@ -6,7 +6,6 @@ import os
 import git
 
 path_parent = os.getcwd()
-#os.chdir(path_parent)
 
 safety_path = path_parent+"/Vulnerable-Flask-App/app/requirements.txt"
 pyraider_path = path_parent+"/Vulnerable-Flask-App/app/requirements.txt"
@@ -20,24 +19,33 @@ def Clone(args):
     
 def RunBandit(args):
     logging.info("Bandit has been started!")
-    time.sleep(5)
+    cmd = "bandit -r -f json {0}".format(bandit_path)
+    process = subprocess.Popen(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True)
+    stdout, stderr = process.communicate()
+    logging.info(stdout)
+    logging.info(stderr)
     logging.info("Bandit has been finished!")
+    logging.info("==================================================")
 
 def RunSafety(args):
     logging.info("Safety has been started!")
-    #logging.info(safety_path)
     cmd = "safety check -r {0} --output json".format(safety_path)
-    #cmd = "ls"
     process = subprocess.Popen(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True)
     stdout, stderr = process.communicate()
     logging.info(stdout)
     logging.info(stderr)
     logging.info("Safety has been finished!")
+    logging.info("==================================================")
 
 def RunPyraider(args):
     logging.info("Pyraider has been started!")
-    time.sleep(5)
+    cmd = "pyraider check -f {0}".format(pyraider_path)
+    process = subprocess.Popen(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True)
+    stdout, stderr = process.communicate()
+    logging.info(stdout)
+    logging.info(stderr)
     logging.info("Pyraider has been finished!")
+    logging.info("==================================================")
 
 def main():
     logging.basicConfig(level=logging.INFO)
