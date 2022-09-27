@@ -3,6 +3,7 @@ import logging
 import time
 import subprocess
 import os
+import git
 
 path_parent = os.getcwd()
 #os.chdir(path_parent)
