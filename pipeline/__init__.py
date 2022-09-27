@@ -11,6 +11,11 @@ safety_path = str(os. getcwd())+"/requirements.txt"
 pyraider_path = str(os. getcwd())+"/requirements.txt"
 bandit_path = str(os. getcwd())+"/app.py"
 
+def Clone(args):
+    logging.info("Cloning Latest Source started!")
+    time.sleep(5)
+    logging.info("Cloning Latest Source finished!")
+    
 def RunBandit(args):
     logging.info("Bandit has been started!")
     time.sleep(5)
