@@ -15,7 +15,7 @@ path_parent = os.getcwd()
 def Clone(args):
     logging.info("Cloning Latest Source started!")
     time.sleep(5)
-    git.Repo.clone_from('https://github.com/DevDungeon/Cookbook', 'Cookbook-https')
+    git.Repo.clone_from('https://github.com/we45/Vulnerable-Flask-App.git', 'Vulnerable-Flask-App')
     logging.info("Cloning Latest Source finished!")
     
 def RunBandit(args):
