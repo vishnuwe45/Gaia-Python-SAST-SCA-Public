@@ -7,6 +7,7 @@ import git
 
 path_parent = os.getcwd()
 
+source_path = path_parent+"/Vulnerable-Flask-App"
 safety_path = path_parent+"/Vulnerable-Flask-App/app/requirements.txt"
 pyraider_path = path_parent+"/Vulnerable-Flask-App/app/requirements.txt"
 bandit_path = path_parent+"/Vulnerable-Flask-App/app/app.py"
@@ -14,6 +15,14 @@ bandit_path = path_parent+"/Vulnerable-Flask-App/app/app.py"
 def Clone(args):
     logging.info("Cloning Latest Source started!")
     time.sleep(5)
+    
+    cmd = "rm -rf {0} | true".format(source_path)
+    process = subprocess.Popen(cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True)
+    stdout, stderr = process.communicate()
+    logging.info(stdout)
+    logging.info(stderr)
+    logging.info("Cleared previous source code")
+    
     git.Repo.clone_from('https://github.com/we45/Vulnerable-Flask-App.git', 'Vulnerable-Flask-App')
     logging.info("Cloning Latest Source finished!")
     
